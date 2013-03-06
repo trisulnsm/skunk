@@ -1,0 +1,11 @@
+#!/bin/sh
+source env.eff
+
+if [ $# -ne 2 ]
+then 
+echo "Usage : $0 <directory-containing-capture-files> <interface>"
+exit 1
+fi
+
+
+$SQBINDIR/skunk $SQCFGDIR/SkunkConfig.xml $1 $2 

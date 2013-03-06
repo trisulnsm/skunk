@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<USNFSkunkConfig>
+
+    <Mode Active="NATURAL_RATE" UseTunnel="FALSE" >
+        <AvailableModes>
+            <PresetMode Name="FIRST_PACKET_FIXED_RATE" Desc="Plays first packet in directory at a fixed rate"/>
+            <PresetMode Name="NATURAL_RATE" Desc="Plays all packets in a directory at their capture rate"/>
+            <PresetMode Name="TIME_EXPAND" Desc="Plays all packets in a directory in a larger time window"/>
+        </AvailableModes>
+    </Mode>  
+
+
+	<!--  Number of times to loop over the same file /dir -->
+    <Loop Count="INFINITE" >
+    </Loop>
+
+	<!--  Entire packet encapsulated in an outer MAC with -->
+	<!--  a custom ether type of 0x0AAA. In Trisul set    -->
+	<!--  a PCAP filter to only watch this ether type     -->
+	<EthMACTunnel Enabled="FALSE">
+		<SrcMAC> 00:1B:FC:2A:D9:DB </SrcMAC>
+		<DstMAC> 00:1D:09:C5:0A:AA </DstMAC>
+	</EthMACTunnel>
+
+
+	<!--  Eth Link used for testing. Works only with Eth/IP  -->
+	<!--  Source MAC autodetected (current machine) dest MAC -->
+	<!--  must be supplied                                   -->
+	<EthMACLink Enabled="TRUE">
+		<SrcMAC> 00:1E:2A:D5:2D:5A</SrcMAC>
+		<DstMAC> AA:00:04:00:0A:04 </DstMAC>
+    </EthMACLink>
+
+</USNFSkunkConfig>
+
